@@ -1,0 +1,48 @@
+<%- model_class = Place -%>
+<div class="panel">
+	<div class="contents">
+		<div class="page-header">
+		  <h1><%= t('views.places.index.title') %></h1>
+		</div>
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th><%= model_class.human_attribute_name(:id) %></th>
+		      <th><%= model_class.human_attribute_name(:name) %></th>
+		      <th><%= model_class.human_attribute_name(:category) %></th>
+		      <th><%= model_class.human_attribute_name(:description) %></th>
+		      <th><%= model_class.human_attribute_name(:created_at) %></th>
+		      <th><%=t 'views.commons.actions.actions' %></th>
+		    </tr>
+		  </thead>
+		  <tbody class="place-list">
+		    <% @places.each do |place| %>
+		      <tr id="<%= place.id %>" class="place-on-list" lat="<%= place.coordinates.lat %>" lon="<%= place.coordinates.lon %>">
+						
+		        <td><%= link_to place.id, place_path(place) %></td>
+		        <td><%= place.name %></td>
+		        <td><%= place.humanized_category %></td>
+		        <td><%= place.humanized_description %></td>
+		        <td><%= place.created_at.in_time_zone("Mexico City").to_s(:short) %></td>
+		        <td>
+		          <%= link_to t('views.commons.actions.edit'),
+		                      edit_place_path(place), :class => 'btn btn-mini' %>
+		          <%= link_to t('views.commons.actions.destroy'),
+		                      place_path(place),
+		                      :method => :delete,
+		                      :confirm => t('views.messages.confirmations.delete'),
+		                      :class => 'btn btn-mini btn-danger' %>
+		        </td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+
+	<div class="contents">
+		<%= link_to t('views.places.index.new'), new_place_path, :class => 'btn btn-primary' %>
+	</div>
+	
+	<div style="width:100%; height:250px; margin-top: 20px" id="map"></div>
+</div>
+

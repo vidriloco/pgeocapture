@@ -1,0 +1,28 @@
+.panel {
+	background-color: #fff;
+	
+	border: 1px solid #CDCDCD;
+	-moz-border-radius: 5px;
+	border-radius: 5px; 
+	margin: 20px;
+	
+	.contents {
+		padding: 5px;
+		
+		h1 {
+			margin-left: 20px;
+		}
+	}
+}
+
+.place-on-list:hover {
+	a {
+		color: #FA9200 !important;
+	}
+	
+	a.btn {
+		color: black !important;
+	}
+	
+	color: #FA9200 !important;
+}

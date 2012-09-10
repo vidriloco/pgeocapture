@@ -1,0 +1,37 @@
+<%= form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
+	<div class="contents">
+		<div class="mid">
+  		<div class="control-group">
+		    <%= f.label :name, :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.text_field :name, :class => 'text_field' %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label :category, :class => 'control-label' %>
+		    <div class="controls">
+		      	<%= f.select(:category, Place.humanized_categories_for(:categories).invert, { :include_blank => true, :class => 'select_field'}) %>
+		    </div>
+		  </div>
+		</div>
+		<div class="mid">
+	  	<div class="control-group">
+		    <%= f.label :description, :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.text_area :description, :rows => 2, :class => 'text_field' %>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<%= hidden_field_tag 'coordinates[lat]', @place.lat %>
+	<%= hidden_field_tag 'coordinates[lon]', @place.lon %>
+	
+	<div style="width:100%; height:250px; margin-top: 20px" id="map" class="edit"></div>
+	
+  <div class="form-actions">
+    <%= f.submit t('views.commons.actions.save'), :class => 'btn btn-primary' %>
+    <%= link_to t('views.commons.actions.cancel'),
+                places_path, :class => 'btn' %>
+  </div>
+<% end %>

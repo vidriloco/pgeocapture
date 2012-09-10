@@ -1,0 +1,50 @@
+es_MX:    
+  app:
+    categories:
+      places:
+        categories:
+          stop: "Parada"
+          faculty: "Facultad"
+          institute: "Instituto"
+          laboratory: "Laboratorio"
+          library: "Biblioteca"
+          museum: "Museo"
+          sport_center: "Lugar para ejercitarse"
+          food_store: "Tiendita"
+          restaurant: "Restaurante"
+  activerecord:
+    models:
+      place: "Lugar"
+    attributes:
+      place: 
+        name: "Nombre"
+        category: "Categoria"
+        description: "Descripción"
+        created_at: "Fecha de creación"
+        coordinates: "Coordenadas"
+  views:
+    messages:
+      confirmations:
+        delete: "¿Eliminar este lugar?"
+    commons:
+      actions: 
+        save: "Guardar"
+        show: "Mostrar"
+        edit: "Modificar"
+        destroy: "Eliminar"
+        back: "Atrás"
+        actions: "Acciones"
+        cancel: "Cancelar"
+    places:
+      attributes:
+        extra:
+          description:
+            not_given: "Ninguna"
+          lat: "Latitud"
+          lon: "Longitud"
+      show:
+        title: "Detalles de lugar"
+      index:
+        title: "Registro de un lugar"
+        new: "Nuevo lugar"
+        edit: "Modificar lugar"

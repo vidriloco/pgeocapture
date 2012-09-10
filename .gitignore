@@ -1,0 +1,9 @@
+*.DS_Store
+.bundle
+bin/*
+Gemfile.lock
+db/*.sqlite3
+db/schema.rb
+log/*.log
+tmp/
+*~
