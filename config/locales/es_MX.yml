@@ -8,7 +8,7 @@ es_MX:
     categories:
       places:
         categories:
-          stop: "Parada"
+          pumabus_stop: "Parada del Pumabús"
           faculty: "Facultad"
           institute: "Instituto"
           laboratory: "Laboratorio"
@@ -35,7 +35,7 @@ es_MX:
           create: "Lugar registrado correctamente"
           update: "Los cambios al lugar fueron aplicados correctamente"
         alerts:
-          save: "No fue posible registrar este lugar"
+          save: "No fue posible registrar este lugar. Por favor, revisa los campos marcados con rojo."
       confirmations:
         delete: "¿Eliminar este lugar?"
     commons:

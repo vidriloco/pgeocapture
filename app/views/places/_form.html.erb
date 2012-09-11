@@ -1,3 +1,16 @@
+
+<% if @place.errors.any? %>
+	<div class="container-50">
+		<div class="alert alert-error">
+			<% if @place.errors.has_key?(:coordinates) %>
+				<%= @place.errors[:coordinates][0] %>
+			<% else %>
+				<%= t("views.messages.places.alerts.save") %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
 <%= form_for @place, :html => { :class => 'form-horizontal' } do |f| %>
 	<div class="contents">
 		<div class="mid">

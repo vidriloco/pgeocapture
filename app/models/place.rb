@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
   validate :poi_is_unique, :on => :create
     
   def self.categories
-    { 0 => :school, 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :stop}
+    { 0 => :school, 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :pumabus_stop, 10 => :bicipuma_station, 11 => :other_building, 12 => :open_space}
   end
   
   def humanized_category
@@ -46,12 +46,12 @@ class Place < ActiveRecord::Base
   
   private
   def coordinates_are_set
-    errors.add(:base, I18n.t('places.custom_validations.coordinates_missing')) if self.coordinates.nil?
+    errors.add(:coordinates, I18n.t('custom_validations.places.coordinates_missing')) if self.coordinates.nil?
   end
   
   def poi_is_unique
     previous = Place.first(:conditions => {:category => category, :name => name})
-    errors.add(:base, I18n.t('places.custom_validations.not_unique')) unless previous.nil?
+    errors.add(:coordinates, I18n.t('custom_validations.places.not_unique')) unless previous.nil?
   end
 
 end

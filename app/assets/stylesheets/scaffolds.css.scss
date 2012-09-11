@@ -35,10 +35,25 @@ div {
   color: green;
 }
 
+
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  color: #C2584D;
+  width: 230px;
+}
+
+.error-block div {
+	width: 10px !important;
+	display: inline-block !important;
+}
+
+.error-block div.field_with_errors {
+	color: #C2584D;
+	width: 230px !important;
+	display: inline-block !important;
+}
+
+.field_with_errors input, .field_with_errors input:hover, .field_with_errors textarea, .field_with_errors 		textarea:hover, .field_with_errors select, .field_with_errors select:hover {
+	border: 1px solid #C2584D;
 }
 
 #error_explanation {
@@ -68,4 +83,14 @@ div {
 	display: inline-block;
 	width: 45%;
 	vertical-align: top;
+}
+
+.button-new {
+	text-align: right;
+	margin-top: 15px;
+}
+
+.container-50 {
+	width: 50%;
+	margin-left: 30px;
 }
