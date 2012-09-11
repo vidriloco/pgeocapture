@@ -28,17 +28,19 @@ $(document).ready(function() {
 		}
 	} 
 	
-	$('.place-on-list').bind('hover', function() {
+	$('.place-on-list').bind('click', function() {
 		var lat = $(this).attr('lat');
 		var lon = $(this).attr('lon');
 		if(map != null) {
+			$('.place-list').children().removeClass('active');
 			map.placeMapOn({ lat : lat, lon : lon, zoom : 16 });
+			$(this).addClass('active');
 		}
 	});
 	
-	$('.place-list').bind('mouseleave', function() {
+	/*$('.place-list').bind('mouseleave', function() {
 		if(map != null) {
 			map.reset();
 		}
-	});
+	});*/
 });

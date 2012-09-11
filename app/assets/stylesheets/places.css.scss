@@ -6,6 +6,10 @@
 	border-radius: 5px; 
 	margin: 20px;
 	
+	.with-left-margin {
+		margin-left: 20px;
+	}
+	
 	.contents {
 		padding: 5px;
 		
@@ -15,14 +19,27 @@
 	}
 }
 
-.place-on-list:hover {
-	a {
+.place-list {
+	cursor: pointer;
+	
+	.active {
+		a {
+			color: #FA9200 !important;
+		}
+
+		a.btn {
+			color: black !important;
+		}
+
 		color: #FA9200 !important;
 	}
-	
-	a.btn {
-		color: black !important;
-	}
-	
-	color: #FA9200 !important;
+}
+
+
+.export-btn {
+	margin-top: 10px;
+}
+
+.selected {
+	border-bottom: 3px solid #45D2A4;
 }

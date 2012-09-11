@@ -4,9 +4,10 @@ class Place < ActiveRecord::Base
   attr_accessible :category, :description, :name, :coordinates
   validates_presence_of :category, :name
   validate :coordinates_are_set
-  
+  validate :poi_is_unique, :on => :create
+    
   def self.categories
-    { 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :stop}
+    { 0 => :school, 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :stop}
   end
   
   def humanized_category
@@ -29,6 +30,14 @@ class Place < ActiveRecord::Base
     coordinates == nil ? nil : coordinates.lon
   end
   
+  def to_plist_node
+    hash={}
+    %w(id name lat lon category).each do |item|
+      hash[item] = self.send(item)
+    end
+    hash.to_plist(false)
+  end
+  
   def apply_geo(coordinates)
     return self if coordinates.nil? || (coordinates["lon"].blank? || coordinates["lat"].blank?)
     self.coordinates = Point.from_lon_lat(coordinates["lon"].to_f, coordinates["lat"].to_f, 4326)
@@ -38,6 +47,11 @@ class Place < ActiveRecord::Base
   private
   def coordinates_are_set
     errors.add(:base, I18n.t('places.custom_validations.coordinates_missing')) if self.coordinates.nil?
+  end
+  
+  def poi_is_unique
+    previous = Place.first(:conditions => {:category => category, :name => name})
+    errors.add(:base, I18n.t('places.custom_validations.not_unique')) unless previous.nil?
   end
 
 end

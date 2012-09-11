@@ -6,7 +6,8 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @places }
+      format.json { send_data @places.to_json, :filename => "places.json" }
+      format.plist { send_data @places.to_plist, :filename => "places.plist" }
     end
   end
 
@@ -18,6 +19,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @place }
+      format.plist { render plist: @place }
     end
   end
 
@@ -45,7 +47,7 @@ class PlacesController < ApplicationController
     
     respond_to do |format|
       if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.html { redirect_to @place, notice: I18n.t('views.messages.places.notifications.create') }
         format.json { render json: @place, status: :created, location: @place }
       else
         format.html { render action: "new" }
@@ -62,7 +64,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.update_attributes(params[:place])
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.html { redirect_to @place, notice: I18n.t('views.messages.places.notifications.update') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

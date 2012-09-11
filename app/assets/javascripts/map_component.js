@@ -59,7 +59,9 @@ ViewComponents.Map = function(gMap, opts, callback) {
 				var lat = $(latitude).val();
 				var lon = $(longitude).val();
 				
-				this.simulatePinPoint(lat, lon, 18);
+				if(lat != "" && lon != "") {
+					this.simulatePinPoint(lat, lon, 18);
+				}
 			}
 		},
 		

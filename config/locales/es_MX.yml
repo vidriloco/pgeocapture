@@ -1,5 +1,10 @@
 es_MX:    
   app:
+    name: "Capturador de POIs"
+    navbar:
+      sections:
+        places: "Lugares"
+        exports: "Exportar"
     categories:
       places:
         categories:
@@ -12,6 +17,7 @@ es_MX:
           sport_center: "Lugar para ejercitarse"
           food_store: "Tiendita"
           restaurant: "Restaurante"
+          school: "Escuela"
   activerecord:
     models:
       place: "Lugar"
@@ -24,6 +30,12 @@ es_MX:
         coordinates: "Coordenadas"
   views:
     messages:
+      places:
+        notifications:
+          create: "Lugar registrado correctamente"
+          update: "Los cambios al lugar fueron aplicados correctamente"
+        alerts:
+          save: "No fue posible registrar este lugar"
       confirmations:
         delete: "¿Eliminar este lugar?"
     commons:
@@ -35,6 +47,13 @@ es_MX:
         back: "Atrás"
         actions: "Acciones"
         cancel: "Cancelar"
+        export: "Exportar"
+    exports:
+      index:
+        title: "Exportar"
+        plist:
+          title: "Como Plist"
+          details: "Exportar los lugares almacenados como plist"
     places:
       attributes:
         extra:
