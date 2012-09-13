@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
   validate :poi_is_unique, :on => :create
     
   def self.categories
-    { 0 => :school, 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :pumabus_stop, 10 => :bicipuma_station, 11 => :other_building, 12 => :open_space}
+    { 0 => :school, 1 => :faculty, 2 => :institute, 3 => :library, 4 => :museum, 5 => :sport_center, 6 => :food_store, 7 => :restaurant, 8 => :laboratory, 9 => :pumabus_stop, 10 => :bicipuma_station, 11 => :open_space}
   end
   
   def humanized_category

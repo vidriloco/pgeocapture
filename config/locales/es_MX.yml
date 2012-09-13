@@ -1,4 +1,8 @@
-es_MX:    
+es_MX:  
+  custom_validations:
+    places:
+      coordinates_missing: "Falta seleccionar un lugar en el mapa"
+      not_unique: "Ya ha sido registrado un lugar con estas características"
   app:
     name: "Capturador de POIs"
     navbar:
@@ -14,10 +18,12 @@ es_MX:
           laboratory: "Laboratorio"
           library: "Biblioteca"
           museum: "Museo"
-          sport_center: "Lugar para ejercitarse"
+          sport_center: "Espacio deportivo"
           food_store: "Tiendita"
           restaurant: "Restaurante"
           school: "Escuela"
+          bicipuma_station: "Estación Bicipuma"
+          open_space: "Espacio Abierto"
   activerecord:
     models:
       place: "Lugar"
